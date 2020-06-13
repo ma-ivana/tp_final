@@ -34,12 +34,12 @@ const StyledLink = styled(Link)`
 `;
 
 const PaginaGeneral = (props) => {
-
+  
   const [peliculasTendencia, setPeliculasTendencia] = useState([])
   const [seriesTendencia, setSeriesTendencia] = useState([])
   let [pageCount, setPageCount] = useState(1)
   const [page, setPage] = useState(1)
-  const api_key = process.env.API_KEY
+  const api_key = process.env.REACT_APP_API_KEY
 
   useEffect(() => {
       

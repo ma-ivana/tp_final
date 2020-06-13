@@ -46,7 +46,8 @@ const HomePage = () => {
   const [flecha, setFlecha] = useState(false)
   let [contenido, setContenido] = useState('peliculas')
   const [seriesTendencia, setSeriesTendencia] = useState([])
-  const api_key = process.env.API_KEY
+  const api_key = process.env.REACT_APP_API_KEY
+  console.log("env " + process.env.REACT_APP_API_KEY)
 
   useEffect(() => {
       fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${api_key}&language=es-ar`)

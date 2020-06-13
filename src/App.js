@@ -6,14 +6,18 @@ import GlobalStyles from './styles/GlobalStyles';
 import theme from './styles/theme';
 import PaginaGeneral from './components/PaginaGeneral';
 
+const dotenv = require('dotenv').config()
+
+
 
 const App = () => {
-
+// const dotenv = require('dotenv').config()
+// console.log("dotenv" + JSON.stringify(dotenv))
   return (
     <Router>
       <ThemeProvider theme={theme}>
         <GlobalStyles/>
-        <BarraNavegacion />
+        
 
         <Switch>
         <Route exact path='/' render={() =><BarraNavegacion />}></Route>
