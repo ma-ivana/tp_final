@@ -30,7 +30,7 @@ const FlechaDerecha = styled(ArrowRight)`
 
 const Poster = styled.section`
   width: 90%;
-  margin: 30px 5% ${props => props.title === "pelicula" ? '20px' : '50px'} 5%;
+  margin: 30px 5% ${props => props.title === "movie" ? '20px' : '50px'} 5%;
   height: auto;
   display: flex;
   justify-content: space-between;
@@ -44,7 +44,7 @@ const HomePage = () => {
   console.log(theme.color.title)
   const [peliculasTendencia, setPeliculasTendencia] = useState([])
   const [flecha, setFlecha] = useState(false)
-  let [contenido, setContenido] = useState('peliculas')
+  let [contenido, setContenido] = useState('movie')
   const [seriesTendencia, setSeriesTendencia] = useState([])
   const api_key = process.env.REACT_APP_API_KEY
   
@@ -75,10 +75,10 @@ const HomePage = () => {
       <>
         <TitleSection>
           <Titulo color="title" fontWeight="title" fontSize="title" m="title">Películas que son tendencia</Titulo>
-          <FlechaDerecha onClick={handleClick} id='peliculas'/>
+          <FlechaDerecha onClick={handleClick} id='movie'/>
         </TitleSection>
                 
-        <Poster title='pelicula'>
+        <Poster title='movie'>
           {peliculasTendencia.map((pelicula, i) => (
             i < 5 &&
             <Card key={pelicula.id} elementoID={pelicula.poster_path} titulo={pelicula.title}/>          
@@ -87,9 +87,9 @@ const HomePage = () => {
 
         <TitleSection >
           <Titulo>Series que son tendencia</Titulo>
-          <FlechaDerecha onClick={handleClick} id='series'/>
+          <FlechaDerecha onClick={handleClick} id='tv'/>
         </TitleSection>
-        <Poster title='serie'>
+        <Poster title='tv'>
           {seriesTendencia.map((serie, i) => (
             i < 5 &&
             <Card key={serie.id} elementoID={serie.poster_path} titulo={serie.name}/>          

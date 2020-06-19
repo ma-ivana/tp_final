@@ -41,6 +41,8 @@ const PaginaGeneral = (props) => {
   const [page, setPage] = useState(1)
   const api_key = process.env.REACT_APP_API_KEY
 
+  console.log(props)
+
   useEffect(() => {
       
       fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${api_key}&language=es-ar&page=${pageCount}`)
@@ -83,18 +85,18 @@ const PaginaGeneral = (props) => {
 
   return (
     <>    
-      {(props.contenido === 'peliculas') ?
+      {(props.contenido === 'movie') ?
         <TrendingMovies/>
          :        
         <TrendingSeries/>
         }
         
         
-        <StyledLink to={(props.contenido === 'peliculas') ? `/movie/trending/page/${pageCount}` : `/tv/trending/page/${pageCount}`}><NewPagination count={1000} page={pageCount} onChange={handleChange}></NewPagination></StyledLink>
+        <StyledLink to={(props.contenido === 'movie') ? `/movie/trending/page/${pageCount}` : `/tv/trending/page/${pageCount}`}><NewPagination count={1000} page={pageCount} onChange={handleChange}></NewPagination></StyledLink>
 
   </>
         
-        //<Route exact path={(props.contenido === 'peliculas') ? `/movie/trending/page/${pageCount}` : `/tv/trending/page/${pageCount}`}></Route>
+        //<Route exact path={(props.contenido === 'movie') ? `/movie/trending/page/${pageCount}` : `/tv/trending/page/${pageCount}`}></Route>
       
        // check porque hover URL muestra bien el nro de pág. pero URL bar, va una posición atrasada
      

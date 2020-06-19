@@ -5,10 +5,12 @@ import BarraNavegacion from './components/BarraNavegacion';
 import GlobalStyles from './styles/GlobalStyles';
 import theme from './styles/theme';
 import PaginaGeneral from './components/PaginaGeneral';
+import HomePage from './components/HomePage';
 
 const dotenv = require('dotenv').config()
 
-
+const movie = "movie";
+const tv = "tv";
 
 const App = () => {
 // const dotenv = require('dotenv').config()
@@ -20,8 +22,10 @@ const App = () => {
         
 
         <Switch>
-        <Route exact path='/' render={() =><BarraNavegacion />}></Route>
-        <Route path='/:contenido/trending/page/:number' componente={PaginaGeneral}></Route>
+        <Route exact path='/' component={BarraNavegacion}></Route>
+        <Route exact path='/' component={HomePage}></Route>
+        <Route path='/movie/trending/page/:number' component={() => <PaginaGeneral contenido={movie}/>}></Route>
+        <Route path='/tv/trending/page/:number' component={() => <PaginaGeneral contenido={tv}/>}></Route>
         </Switch>
         
       </ThemeProvider>
